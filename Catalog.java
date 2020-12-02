@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Catalog {
 
     private String name;
-    private ArrayList<Item> list;
+    private ArrayList<Item> list = new ArrayList<Item>();
 
     public Catalog(String name){
         this.name = name;

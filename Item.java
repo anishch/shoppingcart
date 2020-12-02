@@ -12,6 +12,8 @@ public class Item {
         }
         this.name = name;
         this.price = price;
+        this.bulkQuantity = 1;
+        this.bulkPrice = price;
     }
 
     public Item (String name, double price, int bulkQuantity, double bulkPrice){
@@ -29,7 +31,7 @@ public class Item {
         if (quantity < 0){
             throw new IllegalArgumentException();
         }
-        int temp = (int) (quantity/bulkQuantity);
+        int temp = (quantity/bulkQuantity);
         double totalPrice = temp * bulkPrice + ((quantity - (temp * bulkQuantity)) * price);
         return totalPrice;
     }
