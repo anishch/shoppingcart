@@ -1,3 +1,5 @@
+import java.text.NumberFormat;
+
 public class Item {
 
     private String name;
@@ -12,8 +14,6 @@ public class Item {
         }
         this.name = name;
         this.price = price;
-        this.bulkQuantity = 1;
-        this.bulkPrice = price;
     }
 
     public Item (String name, double price, int bulkQuantity, double bulkPrice){
@@ -31,15 +31,22 @@ public class Item {
         if (quantity < 0){
             throw new IllegalArgumentException();
         }
-        int temp = (quantity/bulkQuantity);
-        double totalPrice = temp * bulkPrice + ((quantity - (temp * bulkQuantity)) * price);
-        return totalPrice;
+        //
+        if (bulkQuantity != 0) {
+            int temp = (quantity / bulkQuantity);
+            double totalPrice = temp * bulkPrice + ((quantity - (temp * bulkQuantity)) * price);
+            return totalPrice;
+        }
+        else{
+            return quantity * this.price;
+        }
     }
 
     public String toString(){
-       String str = this.name + ", " + this.price;
+       NumberFormat nf = NumberFormat.getCurrencyInstance();
+       String str = this.name + ", " + nf.format(this.price);
        if (this.bool){
-            str += " (The price of our bulk quantity of " + this.bulkQuantity + " is " + this.bulkPrice + ")";
+            str += " (The price of our bulk quantity of " + this.bulkQuantity + " is " + nf.format(this.bulkPrice) + ")";
        }
        return str;
     }
