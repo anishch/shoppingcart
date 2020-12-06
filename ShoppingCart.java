@@ -34,12 +34,12 @@ public class ShoppingCart {
     }
 
     public void setDiscount(boolean bool){
-        if (bool && firstTime){
-            bool = false;
+        if (bool){
+            //bool = false;
             firstTime = false;
             price = 0.9 * price;
         }
-        else if (bool && !firstTime){
+        else {
             price = 1/0.9 * price;
             firstTime = true;
         }
