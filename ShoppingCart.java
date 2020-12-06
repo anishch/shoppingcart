@@ -14,17 +14,20 @@ public class ShoppingCart {
 
     public void add(ItemOrder whatweAreAdding){
         boolean duplicate = false;
+        int index = 0;
+        double money = 0;
         for (ItemOrder thingies : this.list){
             if (thingies.getItem().toString().equals(whatweAreAdding.getItem().toString())){
-                list.add(new ItemOrder(thingies.getItem(), whatweAreAdding.quantity));
-                list.remove(thingies);
+                index = list.indexOf(thingies);
                 duplicate = true;
+                money = thingies.getPrice();
             }
         }
-        if (!duplicate){
-            this.list.add(whatweAreAdding);
+        if (duplicate){
+            list.remove(index);
+            price -= money;
         }
-        //
+        this.list.add(whatweAreAdding);
         if (firstTime == false){
             price += 0.9 * whatweAreAdding.getPrice();
         }
