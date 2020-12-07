@@ -1,0 +1,3 @@
+Quick Paragraph about who did what in this project:
+
+Initially, we got on a call and Anish created the github repository and we all went through the initial writing of each of our classes and that logic together. After that, Josh did most of the testing/issue-finding and then all three of us worked on debugging (Anish did most of this debugging work). Then, Vinay added documentation to the classes that we wrote and made sure that there was sound logic.
