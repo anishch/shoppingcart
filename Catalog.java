@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Catalog {
 
+    // simple class that creates an array list to store Item objects,
+    // and the methods return the requested information about the list
     private String name;
     private ArrayList<Item> list = new ArrayList<Item>();
 
