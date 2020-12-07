@@ -25,7 +25,12 @@ public class ShoppingCart {
         }
         if (duplicate){
             list.remove(index);
-            price -= money;
+            if (firstTime){
+                price -= money;
+            }
+            else{
+                price -= 0.9 * money;
+            }
         }
         this.list.add(whatweAreAdding);
         if (firstTime == false){
